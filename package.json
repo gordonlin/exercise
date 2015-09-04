@@ -1,0 +1,14 @@
+{
+  "name": "trend-micro-exercise",
+  "version": "1.0.0",
+  "description": "trend micro exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gordon lin",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
