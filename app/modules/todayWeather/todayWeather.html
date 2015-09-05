@@ -1,11 +1,25 @@
 <div class="content-title">
 Today's Weather
 </div>
-<form class="weather-form">
+<div class="weather-form">
 	<label for="city">City:</label> 
 	<input id="city" type="text" ng-model="city">
 	<label for="country">Country:</label> 
 	<input id="country" type="text" ng-model="country">
 	<button ng-click="search()">Search</button>
-</form>
+</div>
+<div class="weather-info" ng-show="loaded">
+	<div class="weather-img"/>
+	<div>
+		<span>Temperature: </span>
+		<span>{{weather.tempMin}}°C</span>
+		<span> ~ </span>
+		<span>{{weather.tempMax}}°C</span>
+	</div>
+	<div>
+		<span>Humidity: </span>
+		<span>{{weather.humidity}}%</span>
+	</div>
+</div>
+
 
