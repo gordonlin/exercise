@@ -8,8 +8,9 @@ Today's Weather
 	<input id="country" type="text" ng-model="country">
 	<button ng-click="search()">Search</button>
 </div>
-<div class="weather-info" ng-show="loaded">
-	<div class="weather-img"/>
+<div class="weather-loading" ng-show="isLoading"></div>
+<div class="weather-info" ng-show="isLoaded">
+	<div class="weather-img {{imgType}}"></div>
 	<div>
 		<span>Temperature: </span>
 		<span>{{weather.tempMin}}°C</span>

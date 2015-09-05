@@ -1,0 +1,24 @@
+.weather-img {
+	height: 75px;
+	width: 70px;	
+	background-size: contain;
+}
+
+.weather-img.cloud {
+	background: url("../img/icons.png") -70px -370px;
+}
+
+.weather-img.rain {
+	background: url("../img/icons.png") -280px -370px;
+}
+
+.weather-img.clear {
+	background: url("../img/icons.png") -70px -5px;
+}
+
+.weather-loading {
+	height: 75px;
+	width: 70px;	
+	background-size: contain;
+	background-image: url("../img/spinner.png");
+}
