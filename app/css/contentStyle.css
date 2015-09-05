@@ -4,3 +4,7 @@
 	border-width: 0 0 1px 0;
   border-style: solid;
 }
+
+.content-body {
+	margin-top: 10px;
+}

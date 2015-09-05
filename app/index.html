@@ -7,18 +7,20 @@
 	<link href="css/contentStyle.css" rel="stylesheet">
 	<link href="css/todayWeatherStyle.css" rel="stylesheet">
 	<link href="css/dataAnalysisStyle.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body ng-app="app">
-	<div class="menu-wrapper">
-		<ul>
-			<li class="menu-item" ui-sref="dataAnalysis">Data Analysis</li>
-			<li class="menu-item" ui-sref="todayWeather">Today's Weather</li>
-		</ul>
+	<div class="wrapper">
+		<div class="menu-wrapper">
+			<ul>
+				<li class="menu-item" ui-sref="dataAnalysis">Data Analysis</li>
+				<li class="menu-item" ui-sref="todayWeather">Today's Weather</li>
+			</ul>
+		</div>
+		<div id="content" class="content-wrapper" ui-view></div>
 	</div>
-	<div id="content" class="content-wrapper" ui-view>
 
-	</div>
 	<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script type="text/javascript" src="../bower_components/Chart.js/Chart.min.js"></script>
@@ -27,7 +29,7 @@
 	<script type="text/javascript" src="main.js"></script>
 	<!-- data analysis -->
 	<script type="text/javascript" src="modules/dataAnalysis/dataAnalysisController.js"></script>
-	<script type="text/javascript" src="modules/dataAnalysis/index.js"></script>	
+	<script type="text/javascript" src="modules/dataAnalysis/index.js"></script>
 	<!-- today weather -->
 	<script type="text/javascript" src="modules/todayWeather/weatherService.js"></script>
 	<script type="text/javascript" src="modules/todayWeather/todayWeatherController.js"></script>

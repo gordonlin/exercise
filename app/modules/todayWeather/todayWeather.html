@@ -1,27 +1,38 @@
 <div class="content-title">
-Today's Weather
+	Today's Weather
 </div>
-<div class="weather-form">
-	<label for="city">City:</label> 
-	<input id="city" type="text" ng-model="city">
-	<label for="country">Country:</label> 
-	<input id="country" type="text" ng-model="country">
-	<button ng-click="search()">Search</button>
-</div>
-<div class="weather-loading" ng-show="isLoading"></div>
-<div class="weather-error" ng-show="isFailed">City not found.</div>
-<div class="weather-info" ng-show="isLoaded">
-	<div class="weather-img {{imgType}}"></div>
-	<div>
-		<span>Temperature: </span>
-		<span>{{weather.tempMin}}°C</span>
-		<span> ~ </span>
-		<span>{{weather.tempMax}}°C</span>
+<div class="content-body">
+	<div class="weather-form">
+		<label for="city">City:</label>
+		<input id="city" type="text" ng-model="city">
+		<label for="country">Country:</label>
+		<input id="country" type="text" ng-model="country">
+		<button ng-click="search()">Search</button>
 	</div>
-	<div>
-		<span>Humidity: </span>
-		<span>{{weather.humidity}}%</span>
+
+	<div class="weather-loading" ng-show="isLoading"></div>
+	<div class="weather-error" ng-show="isFailed">
+		<i class="material-icons error-icon">&#xE888;</i>
+		<span>City not found.</span>
+	</div>
+
+	<div class="weather-info" ng-show="isLoaded">
+		<div class="weather-info-main">
+			<div class="inline-block center weather-img {{imgType}}"></div>
+			<div class="inline-block center">
+				<div class="weather-info-caption">{{weather.main}}</div>
+				<div>{{weather.description}}</div>
+			</div>
+		</div>
+		<div>
+			<span>Temperature: </span>
+			<span>{{weather.tempMin}}°C</span>
+			<span> ~ </span>
+			<span>{{weather.tempMax}}°C</span>
+		</div>
+		<div>
+			<span>Humidity: </span>
+			<span>{{weather.humidity}}%</span>
+		</div>
 	</div>
 </div>
-
-
