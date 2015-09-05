@@ -1,21 +1,40 @@
-angular.module('app.todayWeather.service', [])
-	.service('WeatherService', ['$http', function ($http) {
-		this.search = function (city, country) {
-			var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + ',' + country + '&units=metric';
-			return $http.get(url, {
-				transformResponse: $http.defaults.transformResponse.concat([function (data) {
-					if(data.cod && data.cod === '404') {
-						throw 'location not found';
+define([
+	'jquery'
+], function (
+	$
+	) {
+    return {
+			search: function (city, country) {
+				var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + ',' + country + '&units=metric';
+				var defer = $.Deferred();
+				$.get(url).done(function (data) {
+					if (data.cod && data.cod === '404') {
+						defer.reject('location not found');
+						return;
+					}
+					var imgType = ''
+					var description = data.weather[0].description;
+					if (description.indexOf('cloud') !== -1) {
+						imgType = "cloud";
+					} else if (description.indexOf('rain') !== -1) {
+						imgType = "rain";
+					} else if (description.indexOf('clear') !== -1) {
+						imgType = "clear";
+					} else {
+						imgType = "unknown";
 					}
 					var result = {
 						main: data.weather[0].main,
-						description: data.weather[0].description,
+						description: description,
 						tempMax: data.main.temp_max,
 						tempMin: data.main.temp_min,
-						humidity: data.main.humidity
+						humidity: data.main.humidity,
+						imgType: imgType
 					}
-					return result;
-				}])
-			});
-		}
-	}]);
+
+					defer.resolve(result);
+				});
+				return defer;
+			}
+		};
+	});

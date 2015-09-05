@@ -15,8 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "angularjs#~1.4.5",
-    "angular-chart.js": "~0.8.1",
-    "angular-ui-router": "~0.2.15"
+    "director": "~1.2.8",
+    "requirejs": "~2.1.20"
   }
 }

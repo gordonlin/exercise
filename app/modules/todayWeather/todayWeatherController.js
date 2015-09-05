@@ -1,37 +1,71 @@
-angular.module('app.todayWeather.controller', ['app.todayWeather.service'])
-	.controller('TodayWeatherController', [
-		'WeatherService',
-		'$scope',
-		function (weatherService, $scope) {
-			$scope.weather = {};
-			$scope.isLoaded = false;
-			$scope.isFailed = false;
-			$scope.isLoading = false;
-			$scope.city = 'taipei';
-			$scope.country = 'tw';
-			$scope.imgType = "";
-			
-			$scope.search = function () {
-				$scope.isLoading = true;
-				$scope.isLoaded = false;
-				$scope.isFailed = false;
-				weatherService.search($scope.city, $scope.country).success(function (data) {
-					$scope.weather = data;
-					$scope.isLoaded = true;
-					if(data.description.indexOf('cloud') !== -1) {
-						$scope.imgType="cloud";
-					} else if(data.description.indexOf('rain') !== -1) {
-						$scope.imgType="rain";
-					} else if(data.description.indexOf('clear') !== -1) {
-						$scope.imgType="clear";
-					} else {
-						$scope.imgType="unknown";
-					}
-				}).error(function(message) {
-					$scope.isLoaded = false;
-					$scope.isFailed = true;
-				}).finally(function() {
-					$scope.isLoading = false;
+define([
+	'jquery',
+	'weatherService'
+], function (
+	$,
+	weatherService
+	) {		
+    return {
+			init: function () {
+				var that = this;
+				$.get('modules/todayWeather/todayWeather.html').done(function (data) {
+					$('#content').append(data);
+					that.showWeatherInfo(false);
+					that.showErrorInfo(false);
+					that.showLoadingIcon(false);
+					that.registerEvents();
 				});
+			},
+			registerEvents: function () {
+				var that = this;
+				$('#searchBtn').click(function () {
+					var city = $('#city').val();
+					var country = $('#country').val();
+					that.showErrorInfo(false);
+					that.showLoadingIcon(true);
+					weatherService.search(city, country).done(function (data) {
+						that.renderWeatherInfo(data);
+						that.showWeatherInfo(true);
+						that.showLoadingIcon(false);
+					}).fail(function (message) {
+						that.showWeatherInfo(false);
+						that.showErrorInfo(true);
+						that.showLoadingIcon(false);
+					})
+				});
+			},
+			showWeatherInfo: function (isShow) {
+				var el = $('.weather-info');
+				if (isShow) {
+					el.show();
+				} else {
+					el.hide();
+				}
+			},
+			showErrorInfo: function (isShow) {
+				var el = $('.weather-error');
+				if (isShow) {
+					el.show();
+				} else {
+					el.hide();
+				}
+			},
+			showLoadingIcon: function (isShow) {
+				var el = $('.weather-loading');
+				if (isShow) {
+					el.show();
+				} else {
+					el.hide();
+				}
+			},
+			renderWeatherInfo: function(data) {
+				var infoEl = $('.weather-info');
+				infoEl.find('.weather-info-caption').text(data.main);
+				infoEl.find('.weather-info-description').text(data.description);
+				infoEl.find('.weather-info-temp-max').text(data.tempMax);
+				infoEl.find('.weather-info-temp-min').text(data.tempMin);
+				infoEl.find('.weather-info-humidity').text(data.humidity);
+				infoEl.find('.weather-img div').removeClass("cloud clear rain").addClass(data.imgType);
 			}
-		}]);
+		};
+	});

@@ -4,35 +4,38 @@
 <div class="content-body">
 	<div class="weather-form">
 		<label for="city">City:</label>
-		<input id="city" type="text" ng-model="city">
+		<input id="city" type="text">
 		<label for="country">Country:</label>
-		<input id="country" type="text" ng-model="country">
-		<button ng-click="search()">Search</button>
+		<input id="country" type="text">
+		<button id="searchBtn">Search</button>
 	</div>
 
-	<div class="weather-loading" ng-show="isLoading"></div>
-	<div class="weather-error" ng-show="isFailed">
+	<div class="weather-loading"></div>
+	<div class="weather-error">
 		<i class="material-icons error-icon">&#xE888;</i>
 		<span class="weather-error-inner">City not found.</span>
 	</div>
 
-	<div class="weather-info" ng-show="isLoaded">
+	<div class="weather-info">
 		<div class="weather-info-main">
-			<div class="inline-block center weather-img {{imgType}}"></div>
+			<div class="inline-block center weather-img cloud">
+			</div>
 			<div class="inline-block center">
-				<div class="weather-info-caption">{{weather.main}}</div>
-				<div class="weather-info-description">{{weather.description}}</div>
+				<div class="weather-info-caption"></div>
+				<div class="weather-info-description"></div>
 			</div>
 		</div>
 		<div>
 			<span>Temperature: </span>
-			<span>{{weather.tempMin}}°C</span>
-			<span> ~ </span>
-			<span>{{weather.tempMax}}°C</span>
+			<span class="weather-info-temp-min"></span>
+			<span>°C ~ </span>
+			<span class="weather-info-temp-max"></span>
+			<span>°C</span>
 		</div>
 		<div>
 			<span>Humidity: </span>
-			<span>{{weather.humidity}}%</span>
+			<span class="weather-info-humidity"></span>
+			<span>%</span>
 		</div>
 	</div>
 </div>

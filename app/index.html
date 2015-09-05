@@ -10,31 +10,19 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body ng-app="app">
+<body>
 	<div class="wrapper">
 		<div class="menu-wrapper">
 			<ul>
-				<li class="menu-item" ui-sref="dataAnalysis">Data Analysis</li>
-				<li class="menu-item" ui-sref="todayWeather">Today's Weather</li>
+				<li class="menu-item">Data Analysis</li>
+				<li class="menu-item">Today's Weather</li>
 			</ul>
 		</div>
-		<div id="content" class="content-wrapper" ui-view></div>
+		<div id="content" class="content-wrapper"></div>
 	</div>
-
-	<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
-	<script type="text/javascript" src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-	<script type="text/javascript" src="../bower_components/Chart.js/Chart.min.js"></script>
-	<script type="text/javascript" src="../bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
-	<!-- main -->
-	<script type="text/javascript" src="main.js"></script>
-	<!-- data analysis -->
-	<script type="text/javascript" src="modules/dataAnalysis/dataAnalysisController.js"></script>
-	<script type="text/javascript" src="modules/dataAnalysis/index.js"></script>
-	<!-- today weather -->
-	<script type="text/javascript" src="modules/todayWeather/weatherService.js"></script>
-	<script type="text/javascript" src="modules/todayWeather/todayWeatherController.js"></script>
-	<script type="text/javascript" src="modules/todayWeather/index.js"></script>
-
+	
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.11/es5-shim.min.js"></script><![endif]-->
+	<script data-main="main" src="../bower_components/requirejs/require.js"></script>
 </body>
 
 </html>
