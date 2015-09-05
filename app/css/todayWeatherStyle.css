@@ -5,15 +5,19 @@
 }
 
 .weather-img.cloud {
-	background: url("../img/icons.png") -70px -370px;
+	background: url("../img/icons.png") -68px -367px;
 }
 
 .weather-img.rain {
-	background: url("../img/icons.png") -280px -370px;
+	background: url("../img/icons.png") -285px -365px;
 }
 
 .weather-img.clear {
-	background: url("../img/icons.png") -70px -5px;
+	background: url("../img/icons.png") -67px -7px;
+}
+
+.weather-img.unknown	 {
+	background: url("../img/icons.png") -140px -511px;
 }
 
 .weather-loading {
