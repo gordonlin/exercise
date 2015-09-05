@@ -5,6 +5,7 @@ angular.module('app.todayWeather.controller', ['app.todayWeather.service'])
 		function (weatherService, $scope) {
 			$scope.weather = {};
 			$scope.isLoaded = false;
+			$scope.isFailed = false;
 			$scope.isLoading = false;
 			$scope.city = 'taipei';
 			$scope.country = 'tw';
@@ -13,6 +14,7 @@ angular.module('app.todayWeather.controller', ['app.todayWeather.service'])
 			$scope.search = function () {
 				$scope.isLoading = true;
 				$scope.isLoaded = false;
+				$scope.isFailed = false;
 				weatherService.search($scope.city, $scope.country).success(function (data) {
 					$scope.weather = data;
 					$scope.isLoaded = true;
@@ -27,6 +29,7 @@ angular.module('app.todayWeather.controller', ['app.todayWeather.service'])
 					}
 				}).error(function(message) {
 					$scope.isLoaded = false;
+					$scope.isFailed = true;
 				}).finally(function() {
 					$scope.isLoading = false;
 				});

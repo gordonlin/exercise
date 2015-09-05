@@ -9,6 +9,7 @@ Today's Weather
 	<button ng-click="search()">Search</button>
 </div>
 <div class="weather-loading" ng-show="isLoading"></div>
+<div class="weather-error" ng-show="isFailed">City not found.</div>
 <div class="weather-info" ng-show="isLoaded">
 	<div class="weather-img {{imgType}}"></div>
 	<div>
