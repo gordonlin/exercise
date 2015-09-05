@@ -45,6 +45,11 @@
   border-color: red;
 }
 
+.weather-error-inner {
+	position: relative;
+ 	bottom: 6px;
+}
+
 .error-icon {
 	color: red;
 }
