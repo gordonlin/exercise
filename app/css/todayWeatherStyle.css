@@ -27,8 +27,12 @@
 	background-image: url("../img/spinner.png");
 }
 
-.weather-caption {
+.weather-info-caption {
 	font-size: x-large;
+}
+
+.weather-info-description {
+	color: grey;
 }
 
 

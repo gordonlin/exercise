@@ -8,4 +8,9 @@
 
 .content-body {
 	margin-top: 10px;
+	font-size: 14px;
+}
+
+.content-body input, .content-body button {
+	font-size: 14px;
 }
