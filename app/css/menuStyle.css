@@ -10,8 +10,20 @@
 	font-size: 12px; 
 	font-family: Arial;
 	padding: 5px 20px 5px 5px; 
+	cursor: pointer;
 }
 
 .menu-item:last-child {
 	border-bottom-width: 1px;
+}
+
+.menu-item:hover {
+	border-width: 1px;
+	border-color:  #2a9fcd;
+	background-color:  #E7EBFF;
+	font-style: bold;
+}
+
+.menu-item:hover:first-of-type + .menu-item {
+	border-top-width: 0;
 }
