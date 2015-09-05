@@ -1,4 +1,4 @@
-angular.module('app.dataAnalysisController', ['chart.js'])
+angular.module('app.dataAnalysis.controller', ['chart.js'])
   .config(['ChartJsProvider', function (ChartJsProvider) {
     // Configure all charts
     ChartJsProvider.setOptions({

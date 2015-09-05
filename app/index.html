@@ -4,6 +4,7 @@
 <head>
 	<link href="css/mainStyle.css" rel="stylesheet">
 	<link href="css/menuStyle.css" rel="stylesheet">
+	<link href="css/contentStyle.css" rel="stylesheet">
 </head>
 
 <body ng-app="app">
@@ -20,19 +21,16 @@
 	<script type="text/javascript" src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script type="text/javascript" src="../bower_components/Chart.js/Chart.min.js"></script>
 	<script type="text/javascript" src="../bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/controllers/dataAnalysisController.js"></script>
-	<script type="text/javascript" src="js/controllers/todayWeatherController.js"></script>
-	<script>
-		// $(function(){
-// 	$.get( 'http://api.openweathermap.org/data/2.5/weather?q=Taipei,TW', function(resp){
-// 		alert( JSON.stringify(resp) );
-// 	});
+	<!-- main -->
+	<script type="text/javascript" src="main.js"></script>
+	<!-- data analysis -->
+	<script type="text/javascript" src="modules/dataAnalysis/dataAnalysisController.js"></script>
+	<script type="text/javascript" src="modules/dataAnalysis/index.js"></script>	
+	<!-- today weather -->
+	<script type="text/javascript" src="modules/todayWeather/weatherService.js"></script>
+	<script type="text/javascript" src="modules/todayWeather/todayWeatherController.js"></script>
+	<script type="text/javascript" src="modules/todayWeather/index.js"></script>
 
-	
-// });
-
-	</script>
 </body>
 
 </html>
