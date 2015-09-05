@@ -1,12 +1,14 @@
 var app = angular.module('app', [
-	'ui.router'
+	'ui.router',
+	'app.dataAnalysisController'
 ]);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 	$stateProvider
 		.state('dataAnalysis', {
 			url: '/dataAnalysis',
-			templateUrl: 'template/dataAnalysis.html'
+			templateUrl: 'template/dataAnalysis.html',
+			controller: 'DataAnalysisController'
 		})
 		.state('todayWeather', {
 			url: '/todayWeather',
