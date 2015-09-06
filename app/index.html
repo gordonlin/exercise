@@ -12,17 +12,20 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.11/es5-shim.min.js"></script>
 		<script src="../bower_components/ExplorerCanvas/excanvas.js"></script>
 	<![endif]-->
+	<!--[if IE 7]>		
+		<link rel="stylesheet" href="css/ie7fix.css" type="text/css" />
+	<![endif]-->
 </head>
 
 <body>
 	<div class="wrapper">
-		<div class="menu-wrapper">
+		<div class="menu-wrapper inline-block">
 			<ul>
 				<li class="menu-item" onclick="location.href='#/dataAnalysis';">Data Analysis</li>
 				<li class="menu-item" onclick="location.href='#/todayWeather';">Today's Weather</li>
 			</ul>
 		</div>
-		<div id="content" class="content-wrapper"></div>
+		<div id="content" class="content-wrapper inline-block"></div>
 	</div>
 
 	

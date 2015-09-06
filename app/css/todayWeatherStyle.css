@@ -21,10 +21,13 @@
 }
 
 .weather-loading {
-	height: 75px;
+	height: 70px;
 	width: 70px;
-	background-size: contain;
-	background-image: url("../img/spinner.png");
+}
+
+.weather-loading img {
+	height: 100%;
+	width: 100%;  
 }
 
 .weather-info-caption {
@@ -38,6 +41,11 @@
 
 .weather-info-main {
 	height: 80px;
+}
+
+.weather-info-inner {
+	top: 20px;
+  position: relative;
 }
 
 .weather-error {

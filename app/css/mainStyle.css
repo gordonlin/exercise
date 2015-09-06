@@ -1,11 +1,9 @@
 .menu-wrapper {
 	width: 20%;
-	display: inline-block;
 	vertical-align: top;
 }
 
 .content-wrapper {
-	display: inline-block;
 	padding: 1em 40px 40px 20px;
 }
 
