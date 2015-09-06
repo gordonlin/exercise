@@ -17,6 +17,7 @@
   "dependencies": {
     "Chart.js": "chartjs#~1.0.2",
     "director": "~1.2.8",
+    "ExplorerCanvas": "*",
     "requirejs": "~2.1.20"
   }
 }

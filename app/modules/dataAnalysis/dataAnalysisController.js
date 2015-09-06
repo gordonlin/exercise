@@ -8,8 +8,13 @@ define([
       init: function () {
         this.initChart();
       },
-      initChart: function () {
-        var ctx = $("#chart").get(0).getContext("2d");
+      initChart: function () { 
+        var chartEl = $("#chart")[0];
+        if(!chartEl.getContext) { 
+          // manually init canvas shim on ie7/ie8
+          G_vmlCanvasManager.initElement(chartEl);  
+        }            
+        var ctx = chartEl.getContext("2d");
         var data = {
           labels: ["2007", "2008", "2009", "2010", "2011", "2012", "2013"],
           datasets: [
