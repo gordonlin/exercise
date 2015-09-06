@@ -1,17 +1,36 @@
 define([
   'jquery',
   'director',
-  'todayWeatherCtrl'
+  'todayWeatherCtrl',
+  'dataAnalysisCtrl'
 ], function (
   $,
   director,
-  todayWeatherCtrl
+  todayWeatherCtrl,
+  dataAnalysis
   ) {
     var app = {
       init: function () {
         $.support.cors = true;
+        var contentEl = $('#content');
         var router = new Router({
-          '/todayWeather': function() {todayWeatherCtrl.init();}
+          '': function() {
+            contentEl.empty();
+          },
+          '/todayWeather': function () {
+            contentEl.empty();
+            $.get('modules/todayWeather/todayWeather.html').done(function (data) {
+              contentEl.append(data);
+              todayWeatherCtrl.init();
+            });
+          },
+          '/dataAnalysis': function () {
+            contentEl.empty();
+            $.get('modules/dataAnalysis/dataAnalysis.html').done(function (data) {
+              contentEl.append(data);
+              dataAnalysis.init();
+            });
+          }
         });
         router.init();
       }

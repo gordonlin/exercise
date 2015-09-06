@@ -4,17 +4,13 @@ define([
 ], function (
 	$,
 	weatherService
-	) {		
+	) {
     return {
 			init: function () {
-				var that = this;
-				$.get('modules/todayWeather/todayWeather.html').done(function (data) {
-					$('#content').append(data);
-					that.showWeatherInfo(false);
-					that.showErrorInfo(false);
-					that.showLoadingIcon(false);
-					that.registerEvents();
-				});
+				this.showWeatherInfo(false);
+				this.showErrorInfo(false);
+				this.showLoadingIcon(false);
+				this.registerEvents();
 			},
 			registerEvents: function () {
 				var that = this;
@@ -58,7 +54,7 @@ define([
 					el.hide();
 				}
 			},
-			renderWeatherInfo: function(data) {
+			renderWeatherInfo: function (data) {
 				var infoEl = $('.weather-info');
 				infoEl.find('.weather-info-caption').text(data.main);
 				infoEl.find('.weather-info-description').text(data.description);
