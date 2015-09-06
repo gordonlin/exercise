@@ -65,3 +65,25 @@
 .error-icon {
 	color: red;
 }
+
+.input {
+	border: solid;
+	border-width: 1.5px;
+	font-size: 14px;
+}
+
+.input[type="text"] {
+	width: 100px;
+	margin-left: 5px;
+	margin-right: 10px;
+}
+
+.search-btn {	
+	cursor: pointer;
+	margin-left: 20px;
+	padding: 1px 15px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+  border-radius: 5px;
+	behavior: url(../bower_components/css3pie/PIE.htc);
+}
