@@ -14,11 +14,12 @@ define([
 			},
 			registerEvents: function () {
 				var that = this;
-				$('#searchBtn').click(function () {
-					var city = $('#city').val();
-					var country = $('#country').val();
+				$('#searchBtn').click(function () {					
 					that.showErrorInfo(false);
 					that.showLoadingIcon(true);
+					that.showWeatherInfo(false);
+					var city = $('#city').val();
+					var country = $('#country').val();
 					weatherService.search(city, country).done(function (data) {
 						that.renderWeatherInfo(data);
 						that.showWeatherInfo(true);
@@ -61,7 +62,7 @@ define([
 				infoEl.find('.weather-info-temp-max').text(data.tempMax);
 				infoEl.find('.weather-info-temp-min').text(data.tempMin);
 				infoEl.find('.weather-info-humidity').text(data.humidity);
-				infoEl.find('.weather-img div').removeClass("cloud clear rain").addClass(data.imgType);
+				infoEl.find('.weather-img').removeClass("cloud clear rain unknown").addClass(data.imgType);
 			}
 		};
 	});
