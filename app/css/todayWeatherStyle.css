@@ -87,3 +87,13 @@
   border-radius: 5px;
 	behavior: url(../bower_components/css3pie/PIE.htc);
 }
+
+@media screen and (max-width: 640px) {
+	.weather-form-item {
+		margin: 5px 0;
+	}
+	
+	.search-btn {
+		margin-left: 0;
+	}
+}

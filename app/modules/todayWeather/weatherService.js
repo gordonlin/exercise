@@ -13,7 +13,7 @@ define([
 						return;
 					}
 					var imgType = ''
-					var description = data.weather[0].description;
+					var description = data.weather[0].description.toLowerCase();
 					if (description.indexOf('cloud') !== -1) {
 						imgType = "cloud";
 					} else if (description.indexOf('rain') !== -1) {
