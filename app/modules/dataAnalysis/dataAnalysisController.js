@@ -10,9 +10,11 @@ define([
       },
       initChart: function () { 
         var chartEl = $("#chart")[0];
+        var isOldIE = false;
         if(!chartEl.getContext) { 
           // manually init canvas shim on ie7/ie8
-          G_vmlCanvasManager.initElement(chartEl);  
+          G_vmlCanvasManager.initElement(chartEl); 
+          isOldIE = true; 
         }            
         var ctx = chartEl.getContext("2d");
         var data = {
@@ -20,7 +22,6 @@ define([
           datasets: [
             {
               label: "Male",
-              fillColor: "rgba(220,220,220,0.2)",
               strokeColor: "rgba(220,220,220,1)",
               pointColor: "rgba(220,220,220,1)",
               pointStrokeColor: "#fff",
@@ -30,7 +31,6 @@ define([
             },
             {
               label: "Female",
-              fillColor: "rgba(151,187,205,0.2)",
               strokeColor: "rgba(151,187,205,1)",
               pointColor: "rgba(151,187,205,1)",
               pointStrokeColor: "#fff",
@@ -41,7 +41,11 @@ define([
           ]
         };
         new Chart(ctx).Line(data, {
-          bezierCurve: false
+          bezierCurve: false,
+          datasetFill : false,
+          multiTooltipTemplate: "<%= datasetLabel %> - <%= value %>",
+          scaleLabel: "<%=value/1000%>k",
+          responsive: !isOldIE
         });
       }
     };
